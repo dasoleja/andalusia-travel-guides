@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andalusia Travel Guides - Site Index</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a2847 0%, #2d3e5f 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a2847 0%, #2d3e5f 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            border-bottom: 4px solid #d4af37;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .intro {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro p {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .city-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .city-section h2 {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #d4af37;
+        }
+
+        .sites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .site-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .site-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .site-card-header {
+            background: linear-gradient(135deg, #d4af37 0%, #c99a2e 100%);
+            color: #1a2847;
+            padding: 1rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .site-card-body {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .site-card-description {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+
+        .site-card-link {
+            background: #1a2847;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .site-card-link:hover {
+            background: #2d3e5f;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+
+            .city-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .sites-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Andalusia Travel Guides</h1>
+        <p>Detailed guides to southern Spain's most iconic sites</p>
+    </div>
+
+    <div class="container">
+        <div class="intro">
+            <p><strong>Welcome!</strong> This guide collection provides detailed information about the major historical sites in Andalusia, including Seville, Córdoba, Granada, and Madrid.</p>
+            <p>Each guide includes historical context, practical visitor information, heat management tips, and accessibility notes. Click on any site below to explore.</p>
+        </div>
+
+        <!-- SEVILLE -->
+        <div class="city-section">
+            <h2>Seville (Sevilla)</h2>
+            <div class="sites-grid">
+                <div class="site-card">
+                    <div class="site-card-header">Giralda Tower & Cathedral</div>
+                    <div class="site-card-body">
+                        <p class="site-card-description">The iconic minaret-turned-bell-tower and one of Spain's largest cathedrals, blending Islamic and Christian architecture.</p>
+                        <a href="seville-giralda.html" class="site-card-link">View Guide</a>
+                    </div>
+                </div>
+
+                <div class="site-card">
+                    <div class="site-card-header">Alcázar Palace</div>
+                    <div class="site-card-body">
+                        <p class="site-card-description">Europe's oldest royal palace still in use, featuring stunning courtyards, gardens, and centuries of architectural history.</p>
+                        <a href="seville-alcazar.html" class="site-card-link">View Guide</a>
+                    </div>
+                </div>
+
+                <div class="site-card">
+                    <div class="site-card-header">Cathedral (Additional)</div>
+                    <div class="site-card-body">
+                        <p class="site-card-description">Deep dive into Seville's Cathedral, built on the site of the great Almohad Mosque, with burial of Columbus.</p>
+                        <a href="seville-cathedral.html" class="site-card-link">View Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CÓRDOBA -->
+        <div class="city-section">
+            <h2>Córdoba</h2>
+            <div class="sites-grid">
+                <div class="site-card">
+                    <div class="site-card-header">Great Mosque (Mezquita)</div>
+                    <div class="site-card-body">
+                        <p class="site-card-description">One of Islam's greatest architectural achievements, featuring the iconic red-and-white striped arches and a cathedral built within.</p>
+                        <a href="cordoba-mezquita.html" class="site-card-link">View Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GRANADA -->
+        <div class="city-section">
+            <h2>Granada</h2>
+            <div class="sites-grid">
+                <div class="site-card">
+                    <div class="site-card-header">Alhambra Palace</div>
+                    <div class="site-card-body">
+                        <p class="site-card-description">The pinnacle of Islamic art in medieval Spain. A complete palace complex with intricate tilework, gardens, and geometric perfection.</p>
+                        <a href="alhambra.html" class="site-card-link">View Guide</a>
+                    </div>
+                </div>
+
+                <div class="site-card">
+                    <div class="site-card-header">Cathedral & Royal Chapel</div>
+                    <div class="site-card-body">
+                        <p class="site-card-description">Built after 1492, marking the end of Islamic rule. Contains the tomb of the Catholic Monarchs who conquered Granada.</p>
+                        <a href="granada-cathedral.html" class="site-card-link">View Guide</a>
+                    </div>
+                </div>
+
+                <div class="site-card">
+                    <div class="site-card-header">Tourist Train (Ruta Verde)</div>
+                    <div class="site-card-body">
+                        <p class="site-card-description">A 1.5-hour circular tour of Granada's major neighborhoods and historic sites, with 10 designated stops.</p>
+                        <a href="granada-tourist-train.html" class="site-card-link">View Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MADRID -->
+        <div class="city-section">
+            <h2>Madrid</h2>
+            <div class="sites-grid">
+                <div class="site-card">
+                    <div class="site-card-header">Royal Palace & Museum</div>
+                    <div class="site-card-body">
+                        <p class="site-card-description">Spain's official royal palace representing Christian Europe, and a key stop on the journey from Islamic Andalusia.</p>
+                        <a href="madrid-royal-palace.html" class="site-card-link">View Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Andalusia Travel Guides. All content is informational and reusable for future travelers.</p>
+    </div>
+</body>
+</html>
