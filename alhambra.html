@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alhambra Palace - Granada Travel Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .nav-breadcrumb {
+            background: #1a2847;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .nav-breadcrumb a {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-breadcrumb a:hover {
+            color: white;
+        }
+
+        .nav-breadcrumb span {
+            color: #d4af37;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a2847 0%, #2d3e5f 100%);
+            color: white;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-bottom: 4px solid #d4af37;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .section {
+            background: white;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #d4af37 0%, #c99a2e 100%);
+            color: #1a2847;
+            padding: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .section-content {
+            padding: 1.5rem;
+        }
+
+        .subsection {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .subsection:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .subsection h3 {
+            color: #1a2847;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .subsection p {
+            margin-bottom: 0.8rem;
+            color: #555;
+        }
+
+        .subsection ul {
+            margin-left: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .subsection li {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .highlight-box {
+            background: #fffbf0;
+            border-left: 4px solid #d4af37;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .highlight-box strong {
+            color: #1a2847;
+        }
+
+        .image-group {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .image-group img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+        }
+
+        .image-caption {
+            font-size: 0.9rem;
+            color: #777;
+            font-style: italic;
+        }
+
+        .practical-tip {
+            background: #e8f4f8;
+            border-left: 4px solid #1a2847;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .practical-tip strong {
+            color: #1a2847;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .heat-alert {
+            background: #ffe8e8;
+            border-left: 4px solid #d32f2f;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .heat-alert strong {
+            color: #d32f2f;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .transit-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 1rem;
+            text-align: center;
+            background: #1a2847;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: #2d3e5f;
+        }
+
+        .nav-btn.secondary {
+            background: #d4af37;
+            color: #1a2847;
+        }
+
+        .nav-btn.secondary:hover {
+            background: #c99a2e;
+        }
+
+        .stops-list {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+
+        .stop-item {
+            padding: 0.8rem;
+            border-left: 3px solid #d4af37;
+            margin-bottom: 0.8rem;
+            padding-left: 1rem;
+        }
+
+        .stop-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .stop-number {
+            font-weight: bold;
+            color: #1a2847;
+            display: inline-block;
+            background: #d4af37;
+            color: #1a2847;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-size: 0.9rem;
+            margin-right: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.6rem;
+            }
+
+            .nav-breadcrumb {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+            }
+
+            .transit-nav {
+                flex-direction: column;
+            }
+
+            .nav-btn {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="nav-breadcrumb">
+        <div>
+            <a href="index.html">← Back to All Sites</a>
+        </div>
+        <div style="font-size: 0.9rem;">
+            Granada: 
+            <a href="alhambra.html">Alhambra</a> | 
+            <a href="granada-cathedral.html">Cathedral</a> | 
+            <a href="granada-tourist-train.html">Tourist Train</a>
+        </div>
+    </div>
+
+    <div class="header">
+        <h1>Alhambra Palace</h1>
+        <p>The Pinnacle of Islamic Art in Medieval Spain</p>
+    </div>
+
+    <div class="container">
+
+        <!-- QUICK FACTS -->
+        <div class="section">
+            <div class="section-header">At a Glance</div>
+            <div class="section-content">
+                <div class="subsection">
+                    <h3>Essential Details</h3>
+                    <ul>
+                        <li><strong>Location:</strong> Calle Real de la Alhambra, Granada 18009</li>
+                        <li><strong>Built:</strong> 13th-14th centuries (Nasrid Kingdom)</li>
+                        <li><strong>Entry Ticket:</strong> Includes Palace, Generalife Gardens, and Alcazaba Fortress</li>
+                        <li><strong>Estimated Time:</strong> 2.5 - 3.5 hours (allow more if you linger)</li>
+                        <li><strong>Best Time to Visit:</strong> Early morning (opens 8:30 AM) or late afternoon (4:00 PM+) to avoid midday crowds and heat</li>
+                        <li><strong>Audio Guide:</strong> Available at entrance (€4-6)</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>💡 Tip:</strong> Your August 1 visit at 1:30 PM is during peak heat hours. Plan to explore shaded courtyards and take regular breaks in cool interior spaces.
+                </div>
+            </div>
+        </div>
+
+        <!-- WHAT YOU'LL SEE -->
+        <div class="section">
+            <div class="section-header">What You'll See</div>
+            <div class="section-content">
+                <div class="subsection">
+                    <h3>The Main Areas</h3>
+                    <p>The Alhambra complex has several key zones. Your ticket includes all of them:</p>
+                </div>
+
+                <div class="subsection">
+                    <h3>1. The Alcazaba (Fortress)</h3>
+                    <p>The oldest section, a military fortress with towers offering panoramic views of Granada. Walk the ramparts, climb towers, and enjoy city views—but expect exposure to sun. Best visited early or late in the day.</p>
+                    <div class="heat-alert">
+                        <strong>Heat Note:</strong> The Alcazaba has minimal shade. If visiting mid-day, spend only 30 minutes here and move to shaded palace areas.
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3>2. The Nasrid Palaces (Royal Palaces)</h3>
+                    <p>This is the crown jewel. A series of connected palace buildings showcasing the height of Islamic art:</p>
+                    <ul>
+                        <li><strong>Mexuar:</strong> Public reception rooms where officials met with the sultan</li>
+                        <li><strong>Court of Myrtles (Patio de Arrayanes):</strong> A serene courtyard with a reflecting pool lined with myrtle bushes. Iconic, beautiful, and cool—this is where you'll want to linger</li>
+                        <li><strong>Palace of the Lions (Palacio de los Leones):</strong> The most intimate and ornate palace. The fountain with 12 marble lions is famous, though currently under restoration (may be partially visible)</li>
+                        <li><strong>Hall of the Two Sisters (Sala de las Dos Hermanas):</strong> Contains stunning stalactite ceiling carved from stucco, representing stars in the sky</li>
+                        <li><strong>Hall of the Kings (Sala de los Reyes):</strong> Features painted leather ceilings—rare surviving examples of Islamic decorative painting</li>
+                    </ul>
+                    <div class="practical-tip">
+                        <strong>Pro Tip:</strong> The Nasrid Palaces have excellent shade, water features (cooling), and are designed to move air naturally. Spend 60-90 minutes here, taking it slowly.
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3>3. The Generalife (Summer Palace & Gardens)</h3>
+                    <p>A separate palace complex with terraced gardens, fountains, and courtyards designed as a retreat. More spacious and less crowded than the main palace. Fountains, shade from trees, and beautiful sightlines of Granada and the Sierra Nevada.</p>
+                    <div class="practical-tip">
+                        <strong>Stroller-Friendly:</strong> The Generalife has paths that can accommodate strollers in some areas, though terrain varies. Plan for some stairs.
+                    </div>
+                </div>
+
+                <div class="image-group">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Alhambra_Court_of_the_Myrtles.jpg/800px-Alhambra_Court_of_the_Myrtles.jpg" alt="Court of Myrtles, Alhambra">
+                    <p class="image-caption">The Court of Myrtles with its iconic reflecting pool</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ARCHITECTURAL DETAILS -->
+        <div class="section">
+            <div class="section-header">What Makes It Special: Key Details</div>
+            <div class="section-content">
+                <div class="subsection">
+                    <h3>Geometric Tilework (Azulejos)</h3>
+                    <p>Every interior wall is covered in intricate geometric tile patterns. These aren't random—they represent Islamic mathematical and philosophical concepts. Look for:</p>
+                    <ul>
+                        <li>Repeating star patterns (interlocking geometric shapes)</li>
+                        <li>Bands of calligraphy (Arabic poetry and religious phrases)</li>
+                        <li>Blue, green, white, and earth-tone colors creating optical illusions</li>
+                    </ul>
+                    <div class="practical-tip">
+                        <strong>Look Up & Around:</strong> Don't just look down at your feet. The tilework extends up walls and across ceilings. Every surface tells a story.
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3>Water Features</h3>
+                    <p>Water was precious and symbolic in Islamic design. The Alhambra has:</p>
+                    <ul>
+                        <li>Fountains representing paradise and abundance</li>
+                        <li>Channels that cool the air naturally</li>
+                        <li>Reflecting pools that double the visual space and reflect light</li>
+                    </ul>
+                    <p><em>Practical benefit:</em> Areas near water are cooler. Sit by fountains to cool down.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3>Carved Stucco & Cedar Ceilings</h3>
+                    <p>Look for ornate carved plaster (stucco) with intricate patterns and calligraphy. Cedar wood ceilings are carved and inlaid with other woods. Each room took years to complete—this is craft at its highest level.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3>The Calligraphy Inscription</h3>
+                    <p>Throughout the palace, you'll see Arabic script carved into stone, tile, and plaster. A famous phrase repeated is: <em>"There is no conqueror but God."</em> It's a reminder of the Islamic context and the uncertainty the rulers felt as Christian kingdoms pressed from the north.</p>
+                </div>
+
+                <div class="image-group">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Alhambra_tile_detail.jpg/800px-Alhambra_tile_detail.jpg" alt="Intricate geometric tilework at Alhambra">
+                    <p class="image-caption">The geometric tilework that covers nearly every interior surface</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRACTICAL INFO -->
+        <div class="section">
+            <div class="section-header">Practical Information</div>
+            <div class="section-content">
+                <div class="subsection">
+                    <h3>Hours & Tickets</h3>
+                    <ul>
+                        <li><strong>Summer Hours (July-August):</strong> 8:30 AM - 8:00 PM (extended hours)</li>
+                        <li><strong>Your Visit Time:</strong> 1:30 PM (peak heat, afternoon crowds beginning)</li>
+                        <li><strong>Entry Fee:</strong> €16-18 (check current prices)</li>
+                        <li><strong>Ticket Requirement:</strong> Book online in advance (highly recommended, especially in summer)</li>
+                        <li><strong>Children:</strong> Ages 12 and under are free with adult ticket</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3>Stroller & Accessibility Notes</h3>
+                    <ul>
+                        <li><strong>Strollers:</strong> The Nasrid Palaces and parts of Generalife have narrow passages and some stairs. Strollers are challenging in tight interior spaces. You may need to leave strollers at certain checkpoints or carry children through narrow areas.</li>
+                        <li><strong>Recommendation:</strong> Plan to use baby carriers/backpacks for narrow palace sections; strollers work better in Alcazaba and Generalife gardens.</li>
+                        <li><strong>Stairs:</strong> Multiple flights throughout. No elevators.</li>
+                        <li><strong>Wheelchair Access:</strong> Limited in palaces; Alcazaba and some garden areas are accessible.</li>
+                    </ul>
+                    <div class="practical-tip">
+                        <strong>Tip for Your Group:</strong> Leave strollers in a luggage locker (available at entrance) and use carriers for the 1.5-2 hours in the tight palace sections. Return to strollers for garden exploration.
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3>Water, Bathrooms & Facilities</h3>
+                    <ul>
+                        <li><strong>Water Fountains:</strong> Available throughout, including at entrances. Bring refillable bottles.</li>
+                        <li><strong>Bathrooms:</strong> Present at multiple locations (Alcazaba, before Nasrid Palaces, near Generalife). Queue times can be long mid-day.</li>
+                        <li><strong>Cafés:</strong> Small café near Generalife; limited food options. Better to eat before or after your visit.</li>
+                        <li><strong>Shade:</strong> Minimal in Alcazaba; excellent in palace interiors and garden areas.</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3>Photography</h3>
+                    <ul>
+                        <li><strong>Interior Photography:</strong> Generally allowed (no flash).</li>
+                        <li><strong>Best Spots for Photos:</strong> Court of Myrtles reflecting pool, palace doorways with intricate tile backgrounds, Generalife gardens at sunset.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- HEAT & LOGISTICS -->
+        <div class="section">
+            <div class="section-header">Heat Management & Summer Logistics</div>
+            <div class="section-content">
+                <div class="subsection">
+                    <h3>Your 1:30 PM Visit in Early August</h3>
+                    <p>This is the hottest part of the day, and early August is peak heat season in Andalusia. Here's how to manage:</p>
+                </div>
+
+                <div class="heat-alert">
+                    <strong>Expected Conditions:</strong> 38-40°C (100-104°F), intense sun exposure, moderate-to-heavy crowds
+                </div>
+
+                <div class="subsection">
+                    <h3>Smart Visit Strategy</h3>
+                    <ul>
+                        <li><strong>Start with Alcazaba (exposed fortress):</strong> You'll get this done in 30 minutes while you still have energy. Climb towers early, views are amazing, but sun is brutal—apply sunscreen and drink water constantly.</li>
+                        <li><strong>Move to Nasrid Palaces:</strong> Spend 60-90 minutes here. This is your cool-down zone. The thick palace walls, interior courtyards, and water features keep temperatures 5-10°C lower than outside. Move slowly, read inscriptions, sit by fountains.</li>
+                        <li><strong>Take a 20-minute break:</strong> Sit in a shaded courtyard, have water/snack, let kids cool down.</li>
+                        <li><strong>Explore Generalife:</strong> Finish with the gardens (30-45 minutes). Trees provide shade, and the terrain is more forgiving. This is the most enjoyable part for kids.</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3>Hydration & Sun Protection</h3>
+                    <ul>
+                        <li>Bring at least 2 liters of water per person (refill at fountains)</li>
+                        <li>High-SPF sunscreen applied every 60-90 minutes, especially after sweating</li>
+                        <li>Lightweight, loose-fitting clothing; hats strongly recommended</li>
+                        <li>Consider a cooling towel or damp cloth around the neck</li>
+                        <li>Light snacks (fruit, nuts, energy bars) to maintain energy</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3>When to Sit Down & Rest</h3>
+                    <p>Don't try to do the whole complex without breaks:</p>
+                    <ul>
+                        <li>After Alcazaba (15-20 min rest in shade)</li>
+                        <li>Mid-way through Nasrid Palaces (10-15 min by a fountain)</li>
+                        <li>Before Generalife (5-10 min if needed)</li>
+                    </ul>
+                    <div class="practical-tip">
+                        <strong>For Young Children (3-5 years):</strong> This is a long visit in intense heat. Consider limiting to Nasrid Palaces + Generalife only (skip the Alcazaba). Your 3-year-old may fatigue—factor in extra breaks.
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3>Stroller & Luggage Strategy</h3>
+                    <ul>
+                        <li>Lockers available at entrance (€3-5, deposit system)</li>
+                        <li>Strollers should be left in luggage lockers; use baby carriers inside</li>
+                        <li>Keep a small backpack with water, sunscreen, snacks—nothing bulky</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOURIST TRAIN CONNECTION -->
+        <div class="section">
+            <div class="section-header">Getting There: Tourist Train (Ruta Verde)</div>
+            <div class="section-content">
+                <div class="subsection">
+                    <h3>Using the Tourist Train to Reach Alhambra</h3>
+                    <p>The Granada City Tour (Ruta Verde) is a perfect way to see multiple neighborhoods while getting to the Alhambra. The train stops at Alhambra twice in its loop:</p>
+                </div>
+
+                <div class="stops-list">
+                    <div class="stop-item">
+                        <span class="stop-number">01</span> <strong>Alhambra / Generalife</strong> — Main entrance (beginning of loop)
+                    </div>
+                    <div class="stop-item">
+                        <span class="stop-number">02</span> <strong>Alhambra / Puerta de la Justicia</strong> — Justice Gate entrance (alternative entry point)
+                    </div>
+                    <div class="stop-item">
+                        <span class="stop-number">03</span> <strong>Plaza Nueva</strong> — Downtown Granada center
+                    </div>
+                    <div class="stop-item">
+                        <span class="stop-number">04</span> <strong>Alhóndiga</strong> — Historic market area
+                    </div>
+                    <div class="stop-item">
+                        <span class="stop-number">05</span> <strong>Cathedral / Capilla Real</strong> — Granada Cathedral & Royal Chapel
+                    </div>
+                    <div class="stop-item">
+                        <span class="stop-number">06</span> <strong>Mirador de San Cristóbal / Jardines de Zoraya</strong> — Viewpoint with city views
+                    </div>
+                    <div class="stop-item">
+                        <span class="stop-number">07</span> <strong>Arco de Elvira / Hospital Real</strong> — Historic gate & hospital
+                    </div>
+                    <div class="stop-item">
+                        <span class="stop-number">08</span> <strong>Calle Reyes Católicos / Plaza Isabel la Católica</strong> — Historic royal avenue
+                    </div>
+                    <div class="stop-item">
+                        <span class="stop-number">09</span> <strong>Calle Molinos / Campo del Príncipe</strong> — Local neighborhood
+                    </div>
+                    <div class="stop-item">
+                        <span class="stop-number">10</span> <strong>Carmen de los Mártires</strong> — Historic palace & gardens
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3>How to Use It</h3>
+                    <p><strong>Duration:</strong> Full loop is 1 hour 25 minutes. Continuous loop (no need to get on/off unless you want to).</p>
+                    <p><strong>Your Strategy:</strong> If you take the full loop, you'll have a scenic 90-minute orientation to Granada while your 3-year-old enjoys the ride. The train deposits you near Alhambra stops.</p>
+                    <p><strong>Note:</strong> The train makes a convenient loop but takes the scenic route. For a direct route to Alhambra from your Airbnb (Calle San Ambrosio), you could also take local Bus Line 3 (15-20 minutes) or a taxi (€8-12).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- HISTORY CONTEXT -->
+        <div class="section">
+            <div class="section-header">Historical Context</div>
+            <div class="section-content">
+                <div class="subsection">
+                    <h3>Who Built It & Why</h3>
+                    <p>The Alhambra was built by the Nasrid dynasty, the last Islamic kingdom in Spain. As Christian kingdoms conquered territory from the north, Granada became a refuge for displaced scholars, artists, and craftspeople. The rulers poured resources into creating a palace that embodied the height of Islamic civilization—partly as a statement of power, partly to preserve Islamic culture.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3>Timeline</h3>
+                    <ul>
+                        <li><strong>1238:</strong> Muhammad I (founder) establishes the Nasrid kingdom in Granada</li>
+                        <li><strong>1362-1391:</strong> Muhammad V expands and beautifies the palaces—this is the "golden era" of construction</li>
+                        <li><strong>1492:</strong> The last Nasrid ruler, Boabdil, surrenders to the Catholic Monarchs. Granada falls, ending 800 years of Islamic rule in Spain. Legend says Boabdil wept as he left, looking back at the Alhambra.</li>
+                        <li><strong>1492-1700s:</strong> The palace is converted to Christian use but never destroyed</li>
+                        <li><strong>19th century:</strong> Romantics like Washington Irving (author of "Tales of the Alhambra") visited and helped make it famous in Europe</li>
+                        <li><strong>Today:</strong> Restored and preserved as one of the world's most important examples of Islamic architecture</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3>What the Inscriptions Mean</h3>
+                    <p>The carved phrases you'll see throughout are mostly from the Quran or Islamic poetry, but the most poignant is repeated throughout: <em>"There is no conqueror but God."</em> This phrase is a prayer and a resignation—acknowledging that only God has ultimate power. For a ruler watching Christian kingdoms advance, it was both defiance and acceptance of fate.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>Connection to Your Trip:</strong> Compare the Alhambra (1360s, Islamic peak) to the Córdoba Mezquita (850s, even earlier Islamic zenith) to see how Islamic Spanish culture evolved over 500 years. Then see how Christian architecture overlaid both after 1492 (Cathedral, Royal Chapel).
+                </div>
+            </div>
+        </div>
+
+        <!-- WHAT TO LOOK FOR -->
+        <div class="section">
+            <div class="section-header">Specific Things to Look For (Photo Checklist)</div>
+            <div class="section-content">
+                <div class="subsection">
+                    <p>As you walk through, look for these iconic details:</p>
+                    <ul>
+                        <li>✓ The Court of Myrtles reflecting pool and surrounding arcades</li>
+                        <li>✓ The marble lions in the Palace of the Lions (though may be under restoration)</li>
+                        <li>✓ The stalactite ceiling in the Hall of the Two Sisters (look straight up)</li>
+                        <li>✓ The geometric tile patterns (azulejos) in close-up detail</li>
+                        <li>✓ A carved stucco wall or ceiling</li>
+                        <li>✓ Calligraphy inscriptions (ask a guide to translate one)</li>
+                        <li>✓ A fountain with water channels</li>
+                        <li>✓ Views of Granada and Sierra Nevada from tower or garden vantage point</li>
+                        <li>✓ A doorway framing a courtyard or garden (great photo composition)</li>
+                        <li>✓ Generalife gardens with terraced plantings</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOTTOM NAVIGATION -->
+        <div class="section">
+            <div class="section-header">Next Steps & Navigation</div>
+            <div class="section-content">
+                <p style="margin-bottom: 1.5rem;">After your Alhambra visit, you might also explore:</p>
+                <div class="transit-nav">
+                    <a href="index.html" class="nav-btn secondary">← All Sites</a>
+                    <a href="granada-cathedral.html" class="nav-btn">Cathedral & Chapel →</a>
+                    <a href="granada-tourist-train.html" class="nav-btn">Tourist Train Guide →</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Simple mobile-friendly link handler
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Alhambra guide loaded. Check links to hub and other Granada sites.');
+        });
+    </script>
+</body>
+</html>
