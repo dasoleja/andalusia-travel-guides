@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids' Guide to Andalusia - A Quest Through Time</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .title-page {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            border-bottom: 5px solid #ffd700;
+        }
+
+        .title-page h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title-page p {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .quest-badge {
+            display: inline-block;
+            background: #ffd700;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+
+        .city-section {
+            padding: 40px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .city-section:last-child {
+            border-bottom: none;
+        }
+
+        .city-title {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 10px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .city-intro {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            font-style: italic;
+            color: #555;
+            border-left: 5px solid #667eea;
+        }
+
+        .site-guide {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #fffacd;
+            border-radius: 10px;
+            border: 3px solid #ffd700;
+        }
+
+        .site-title {
+            font-size: 1.8rem;
+            color: #764ba2;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .site-emoji {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+
+        .story-box {
+            background: #ffe4e1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #ff69b4;
+        }
+
+        .story-box strong {
+            color: #ff1493;
+        }
+
+        .fun-fact {
+            background: #e0ffe0;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #32cd32;
+        }
+
+        .fun-fact strong {
+            color: #228b22;
+        }
+
+        .spot-it {
+            background: #fff8dc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 3px dashed #ff8c00;
+        }
+
+        .spot-it h4 {
+            color: #ff8c00;
+            margin-bottom: 10px;
+        }
+
+        .quiz-box {
+            background: #e6f3ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #1e90ff;
+        }
+
+        .quiz-box h4 {
+            color: #1e90ff;
+            margin-bottom: 10px;
+        }
+
+        .quiz-option {
+            padding: 8px;
+            margin: 8px 0;
+            background: white;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .quiz-option:hover {
+            background: #e6f3ff;
+            border-color: #1e90ff;
+        }
+
+        .heat-tip {
+            background: #ffe4b5;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #ff6347;
+        }
+
+        .heat-tip strong {
+            color: #d32f2f;
+        }
+
+        .stroller-note {
+            background: #f5f5dc;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #8b4513;
+        }
+
+        .stroller-note strong {
+            color: #654321;
+        }
+
+        .checklist {
+            background: #f0fff0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #228b22;
+        }
+
+        .checklist h4 {
+            color: #228b22;
+            margin-bottom: 10px;
+        }
+
+        .checklist-item {
+            padding: 8px;
+            margin: 5px 0;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .comparison-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .comparison-item {
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .comparison-item.islamic {
+            background: #e0ffe0;
+            border: 2px solid #32cd32;
+        }
+
+        .comparison-item.christian {
+            background: #fff0f5;
+            border: 2px solid #ff69b4;
+        }
+
+        .page-break {
+            page-break-after: always;
+            margin: 40px 0;
+            text-align: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .final-badge {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #333;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 40px;
+        }
+
+        .final-badge h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .final-badge p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .title-page h1 { font-size: 2rem; }
+            .city-title { font-size: 1.8rem; }
+            .site-title { font-size: 1.4rem; }
+            .container { margin: 0; border-radius: 0; }
+            .comparison-box { grid-template-columns: 1fr; }
+        }
+
+        @media print {
+            body { background: white; }
+            .page-break { page-break-after: always; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- COVER PAGE -->
+        <div class="title-page">
+            <h1>🏰 ANDALUSIA QUEST 🏰</h1>
+            <p>A TIME-TRAVELING ADVENTURE Through Islamic & Christian Spain</p>
+            <div class="quest-badge">🗺️ Explorer's Guide for Ages 7-10 🗺️</div>
+            <p style="margin-top: 30px; font-size: 1rem;">Your mission: Discover the amazing history hidden in palaces, mosques, and cathedrals across southern Spain!</p>
+        </div>
+
+        <!-- WELCOME SECTION -->
+        <div class="city-section" style="background: #f0f4ff; text-align: center;">
+            <h2 style="color: #667eea; margin-bottom: 20px;">Welcome to Your Quest!</h2>
+            <p>You're about to travel back in time—800 years back!</p>
+            <p>In this guide, you'll discover:</p>
+            <ul style="list-style: none; margin: 20px 0;">
+                <li>🕌 ISLAMIC PALACES (when Muslim kings ruled Spain)</li>
+                <li>⛪ CHRISTIAN CATHEDRALS (when Christian kings took over)</li>
+                <li>🎯 SPOT-IT CHALLENGES (cool things to look for)</li>
+                <li>❓ QUIZZES (test your knowledge!)</li>
+                <li>💪 HEAT HACKS (how to stay cool in the summer sun)</li>
+            </ul>
+            <p style="margin-top: 30px;"><strong>Collect all your explorer stamps and become a Master of Andalusian History!</strong></p>
+        </div>
+
+        <!-- ====== SEVILLE ====== -->
+        <div class="city-section">
+            <div class="city-title">⚔️ SEVILLE ⚔️</div>
+            <div class="city-intro">
+                <strong>When you visit:</strong> July 28-31<br>
+                <strong>Weather:</strong> SUPER HOT! (38-40°C / 100-104°F)<br>
+                <strong>What you'll see:</strong> A tower that's half Islamic, half Christian. Palaces. A HUGE cathedral.
+            </div>
+
+            <!-- GIRALDA -->
+            <div class="site-guide">
+                <div class="site-title">
+                    <span class="site-emoji">🗼</span>
+                    <span>The Giralda Tower: Half Mosque, Half Church</span>
+                </div>
+
+                <div class="story-box">
+                    <strong>The Story:</strong> Imagine a skyscraper that's 2 different styles mixed together. That's the Giralda! The bottom part (built in 1198) was an Islamic minaret—a tall tower where a man called the faithful to prayer. Then Christians conquered Seville, and instead of knocking it down, they added a Christian bell tower on top! It's like two buildings having a conversation.
+                </div>
+
+                <div class="fun-fact">
+                    <strong>🤓 Cool Fact:</strong> The tower has 34 RAMPS instead of stairs! Ramps are like gentle slopes. In the old days, the Islamic imam would RIDE A HORSE up these ramps to get to the top! (You'll walk, not ride a horse.)
+                </div>
+
+                <div class="spot-it">
+                    <h4>🎯 SPOT-IT CHALLENGE: At the Giralda</h4>
+                    <p>Look for these when you visit:</p>
+                    <ul style="margin-left: 20px;">
+                        <li>☐ The RED-AND-WHITE STRIPED patterns on the tower (that's Islamic style)</li>
+                        <li>☐ The WEATHERVANE at the very top shaped like a woman (she spins in the wind!)</li>
+                        <li>☐ The point where the ISLAMIC BOTTOM meets the CHRISTIAN TOP (look for the obvious line)</li>
+                        <li>☐ View of the whole city from the top—see if you can spot the cathedral!</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-box">
+                    <h4>❓ QUICK QUIZ</h4>
+                    <p><strong>Why did Christians keep the Islamic minaret instead of tearing it down?</strong></p>
+                    <div class="quiz-option">A) They forgot about it</div>
+                    <div class="quiz-option">B) It was too beautiful to destroy</div>
+                    <div class="quiz-option">C) They didn't have enough money</div>
+                    <p style="margin-top: 10px; font-size: 0.9rem; color: #666;"><em>Answer: B! The tower was so amazing that even after they conquered the city, they kept it. Then they added their own bell tower on top so it was Christian too.</em></p>
+                </div>
+
+                <div class="heat-tip">
+                    <strong>🌞 HEAT HACK:</strong> The climb up the Giralda is in the sun, so do it EARLY (right when it opens). Drink lots of water. The view at the top is worth it, but it's HOT on the way up. Wear a hat!
+                </div>
+
+                <div class="stroller-note">
+                    <strong>🚼 STROLLER NOTE:</strong> You can't take strollers up the tower. One grown-up can climb while another stays below with little kids. The Cathedral (below) is stroller-friendly!
+                </div>
+            </div>
+
+            <!-- ALCÁZAR -->
+            <div class="site-guide">
+                <div class="site-title">
+                    <span class="site-emoji">👑</span>
+                    <span>The Alcázar Palace: A King's Magic Fortress</span>
+                </div>
+
+                <div class="story-box">
+                    <strong>The Story:</strong> This isn't just a palace—it's a whole CITY of rooms, gardens, courtyards, and water channels! Kings built it, then more kings added more, then even MORE kings added even MORE stuff. It's like someone kept building Lego on top of Lego for 600 years! The Islamic parts have geometric patterns and cooling water. The Christian parts are fancier with gold and fancy furniture.
+                </div>
+
+                <div class="fun-fact">
+                    <strong>🤓 Cool Fact:</strong> The Alcázar is the OLDEST royal palace in Europe that's STILL used by the king! That means real royalty lives there sometimes. It's not just a museum—it's an actual home for important people.
+                </div>
+
+                <div class="spot-it">
+                    <h4>🎯 SPOT-IT CHALLENGE: In the Palace</h4>
+                    <p>Look for these:</p>
+                    <ul style="margin-left: 20px;">
+                        <li>☐ A courtyard with a REFLECTING POOL that mirrors the buildings</li>
+                        <li>☐ GEOMETRIC TILE PATTERNS (stars, diamonds, interlocking shapes)</li>
+                        <li>☐ CARVED STUCCO (looks like lace frozen in stone)</li>
+                        <li>☐ A room with ARABIC CALLIGRAPHY (fancy writing) on the walls</li>
+                        <li>☐ The GARDENS with trees and fountains</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-box">
+                    <div class="comparison-item islamic">
+                        <strong>Islamic Design</strong><br>
+                        🕌 Simple, calm<br>
+                        💧 Lots of water & fountains<br>
+                        ⭐ Geometric patterns<br>
+                        ❄️ Designed to cool down
+                    </div>
+                    <div class="comparison-item christian">
+                        <strong>Christian Design</strong><br>
+                        ⛪ Fancy, ornate<br>
+                        👑 Symbols of power<br>
+                        🪟 Big rooms, tall ceilings<br>
+                        ✨ Lots of gold & jewels
+                    </div>
+                </div>
+
+                <div class="heat-tip">
+                    <strong>🌞 HEAT HACK:</strong> The gardens are AMAZING and shady. Spend time there! There are fountains to sit by. It's cooler than the streets because of all the trees and water.
+                </div>
+
+                <div class="stroller-note">
+                    <strong>🚼 STROLLER FRIENDLY:</strong> The palace has lots of stairs, but the gardens have nice flat paths. Strollers work great in the gardens!
+                </div>
+            </div>
+
+            <!-- SEVILLE CATHEDRAL -->
+            <div class="site-guide">
+                <div class="site-title">
+                    <span class="site-emoji">⛪</span>
+                    <span>Seville Cathedral: Mega-Huge & Super Golden</span>
+                </div>
+
+                <div class="story-box">
+                    <strong>The Story:</strong> Christians wanted to build the BIGGEST, FANCIEST cathedral possible to show they were powerful. This is it! It's so big you can fit 25 tennis courts inside! Everything is GOLD and SPARKLY. There are so many decorations your eyes don't know where to look first. And guess what? Christopher Columbus is buried here!
+                </div>
+
+                <div class="fun-fact">
+                    <strong>🤓 Cool Fact:</strong> This cathedral was built on top of an Islamic mosque. They knocked down the mosque but kept the Giralda (the tower) because it was too beautiful. It's like they said, "We'll use your tower, but we're making everything else our way!"
+                </div>
+
+                <div class="spot-it">
+                    <h4>🎯 SPOT-IT CHALLENGE: In the Cathedral</h4>
+                    <p>Look for these:</p>
+                    <ul style="margin-left: 20px;">
+                        <li>☐ CHRISTOPHER COLUMBUS'S TOMB (it's really fancy and surrounded by statues)</li>
+                        <li>☐ The MASSIVE GOLDEN ALTAR at the front (it glows!)</li>
+                        <li>☐ STAINED GLASS WINDOWS (colored glass that makes patterns with light)</li>
+                        <li>☐ How HUGE everything is (walk along one side—it takes forever!)</li>
+                        <li>☐ A doorway where you can see the Giralda tower through it</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-box">
+                    <h4>❓ QUICK QUIZ</h4>
+                    <p><strong>Why is Columbus buried here?</strong></p>
+                    <div class="quiz-option">A) He lived in Seville</div>
+                    <div class="quiz-option">B) He sailed from Seville to America, so Spain wanted to honor him</div>
+                    <div class="quiz-option">C) He built the cathedral</div>
+                    <p style="margin-top: 10px; font-size: 0.9rem; color: #666;"><em>Answer: B! Columbus sailed from Seville's harbor. When he came back famous, they put him in the fanciest cathedral.</em></p>
+                </div>
+
+                <div class="heat-tip">
+                    <strong>🌞 HEAT HACK:</strong> This is the PERFECT place to cool down! The inside is dark and cool because of the thick stone walls. Spend an hour here relaxing in the shade.
+                </div>
+
+                <div class="stroller-note">
+                    <strong>🚼 VERY STROLLER FRIENDLY:</strong> Wide, flat floors. This is one of the easiest places for strollers!
+                </div>
+            </div>
+        </div>
+
+        <div class="page-break">--- Page Break: Heading to Córdoba ---</div>
+
+        <!-- ====== CÓRDOBA ====== -->
+        <div class="city-section">
+            <div class="city-title">🕌 CÓRDOBA 🕌</div>
+            <div class="city-intro">
+                <strong>When you visit:</strong> July 30 (day trip)<br>
+                <strong>Weather:</strong> VERY HOT but you'll be indoors most of the time<br>
+                <strong>What you'll see:</strong> A MOSQUE that got turned into a CATHEDRAL. Weird? Yes. Cool? VERY cool!
+            </div>
+
+            <!-- MEZQUITA -->
+            <div class="site-guide">
+                <div class="site-title">
+                    <span class="site-emoji">🏛️</span>
+                    <span>The Great Mosque (Mezquita): Red-and-White Arches for Days</span>
+                </div>
+
+                <div class="story-box">
+                    <strong>The Story:</strong> Imagine a room STUFFED with 856 columns. (That's more columns than you can count!) The tops of the columns are connected by BRIGHT RED-AND-WHITE striped arches. When you walk through, it feels like you're in a magical forest of stone. Muslims worshipped here for 700 years. Then Christians came and built a CATHEDRAL right in the middle! It looks so weird—Islamic pillars everywhere, but a giant Christian church stuck in the center. It's the most confusing-but-beautiful building you'll ever see!
+                </div>
+
+                <div class="fun-fact">
+                    <strong>🤓 Cool Fact:</strong> The mosque has a MIHRAB—a special niche that points toward Mecca (the holiest city in Islam). It's COVERED in mosaics and sparkles like a jewelry box. Muslims would stand here to pray. It's tiny but incredibly fancy!
+                </div>
+
+                <div class="fun-fact" style="margin-top: 15px;">
+                    <strong>🤓 Cool Fact #2:</strong> When Christians conquered Córdoba, they KEPT the mosque standing instead of knocking it down. But then they built a cathedral IN THE MIDDLE. So now it looks like they're fighting over the building—Islamic arches, Christian cathedral, Islamic arches, Christian cathedral!
+                </div>
+
+                <div class="spot-it">
+                    <h4>🎯 SPOT-IT CHALLENGE: In the Mezquita</h4>
+                    <p>Look for these:</p>
+                    <ul style="margin-left: 20px;">
+                        <li>☐ The RED-AND-WHITE STRIPED ARCHES (there are SO many!)</li>
+                        <li>☐ The MIHRAB (prayer niche)—it's at the far end, super fancy</li>
+                        <li>☐ The CHRISTIAN CATHEDRAL in the middle (it looks totally out of place!)</li>
+                        <li>☐ ARABIC CALLIGRAPHY on the walls and arches (fancy curved writing)</li>
+                        <li>☐ The COURTYARD with orange trees outside the mosque</li>
+                        <li>☐ How COOL it is inside (thank you, thick stone walls!)</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-box">
+                    <div class="comparison-item islamic">
+                        <strong>The Mosque (Islamic)</strong><br>
+                        🏛️ Open space to pray<br>
+                        ⭐ Geometric patterns<br>
+                         💧 Water for washing<br>
+                        🕌 Points toward Mecca
+                    </div>
+                    <div class="comparison-item christian">
+                        <strong>The Cathedral (Christian)</strong><br>
+                        ⛪ A church building<br>
+                        ✨ Gold & decorations<br>
+                        👑 Shows power<br>
+                        ⛪ Crosses & Christian symbols
+                    </div>
+                </div>
+
+                <div class="quiz-box">
+                    <h4>❓ QUICK QUIZ</h4>
+                    <p><strong>Why is a cathedral INSIDE a mosque?</strong></p>
+                    <div class="quiz-option">A) Christians wanted to show it was their building now</div>
+                    <div class="quiz-option">B) They ran out of space</div>
+                    <div class="quiz-option">C) They thought it looked cool</div>
+                    <p style="margin-top: 10px; font-size: 0.9rem; color: #666;"><em>Answer: A! When Christians took over, they wanted to show that THEIR religion was now in charge. So they built their church right in the middle of the mosque. It's a power move!</em></p>
+                </div>
+
+                <div class="heat-tip">
+                    <strong>🌞 HEAT HACK:</strong> The inside is COOL and dark. Spend as much time here as you want! The thick walls keep out the heat. Sit by the water fountains if you get hot.
+                </div>
+
+                <div class="stroller-note">
+                    <strong>🚼 VERY STROLLER FRIENDLY:</strong> Flat, open floor. Easy to push a stroller around. Perfect!
+                </div>
+            </div>
+        </div>
+
+        <div class="page-break">--- Page Break: Heading to Granada ---</div>
+
+        <!-- ====== GRANADA ====== -->
+        <div class="city-section">
+            <div class="city-title">✨ GRANADA ✨</div>
+            <div class="city-intro">
+                <strong>When you visit:</strong> July 31 - August 3<br>
+                <strong>Weather:</strong> EXTREMELY HOT<br>
+                <strong>What you'll see:</strong> The most beautiful palace ever built (Alhambra). A cathedral. A train ride through the city.
+            </div>
+
+            <!-- ALHAMBRA -->
+            <div class="site-guide">
+                <div class="site-title">
+                    <span class="site-emoji">🏰</span>
+                    <span>The Alhambra: The Most Beautiful Palace in the World!</span>
+                </div>
+
+                <div class="story-box">
+                    <strong>The Story:</strong> Picture a palace where EVERY SURFACE has beautiful patterns. Tiles on the floor. Carved designs on walls. Fountains in courtyards. Gardens everywhere. This is the Alhambra! It was built by the last Islamic kings of Granada as they were losing power to Christians. Instead of fighting, they created something SO BEAUTIFUL that 500+ years later, people still visit to say "WOW!" The palace was supposed to feel like paradise on Earth—cool water, flowing air, perfect gardens, amazing art everywhere.
+                </div>
+
+                <div class="fun-fact">
+                    <strong>🤓 Cool Fact:</strong> The Alhambra has a COURT OF LIONS—a courtyard with a fountain surrounded by 12 marble lions! The lions are like guards protecting the palace. The water flows out of their mouths!
+                </div>
+
+                <div class="fun-fact" style="margin-top: 15px;">
+                    <strong>🤓 Cool Fact #2:</strong> Everything in the Alhambra was designed to COOL YOU DOWN. Water channels, fountains, shaded courtyards, high ceilings to let heat escape. It was built in a hot place, so the Muslim architects got super smart about staying cool. (They're basically the ancient air-conditioning experts!)
+                </div>
+
+                <div class="spot-it">
+                    <h4>🎯 SPOT-IT CHALLENGE: In the Alhambra (THIS IS A BIG ONE!)</h4>
+                    <p>Look for these (bring a pencil to check them off!):</p>
+                    <ul style="margin-left: 20px;">
+                        <li>☐ GEOMETRIC TILE PATTERNS (stars, diamonds, complex shapes)</li>
+                        <li>☐ ARABIC CALLIGRAPHY (fancy writing on walls)</li>
+                        <li>☐ A STALACTITE CEILING (looks like frozen ice but it's carved plaster!)</li>
+                        <li>☐ The COURT OF MYRTLES with its reflecting pool</li>
+                        <li>☐ The COURT OF LIONS with the 12 marble lions</li>
+                        <li>☐ A FOUNTAIN with water flowing from something cool</li>
+                        <li>☐ A room where you can see the SIERRA NEVADA MOUNTAINS through a window</li>
+                        <li>☐ A doorway that frames a view perfectly (great for photos!)</li>
+                        <li>☐ Evidence that Christians added their own decorations after they conquered</li>
+                        <li>☐ A spot where you feel cooler because of design (under a water channel, by a fountain, etc.)</li>
+                    </ul>
+                </div>
+
+                <div class="checklist">
+                    <h4>📋 PHOTO CHECKLIST: Take pictures of these!</h4>
+                    <div class="checklist-item">
+                        <input type="checkbox"> You standing in front of the Alhambra
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> A geometric pattern (zoom in!)
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> The Court of Lions
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> A fountain or water feature
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> A doorway framing a view
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox"> The Alhambra from a distance showing the whole palace
+                    </div>
+                </div>
+
+                <div class="quiz-box">
+                    <h4>❓ QUICK QUIZ</h4>
+                    <p><strong>Why did the Islamic kings build the Alhambra SO fancy when enemies were attacking?</strong></p>
+                    <div class="quiz-option">A) They wanted to distract the enemy with pretty colors</div>
+                    <div class="quiz-option">B) They believed in creating beauty even during hard times</div>
+                    <div class="quiz-option">C) They had nothing else to do</div>
+                    <p style="margin-top: 10px; font-size: 0.9rem; color: #666;"><em>Answer: B! Even though they were losing power, they created something so beautiful that it still amazes people 500 years later. That's pretty cool, right?</em></p>
+                </div>
+
+                <div class="heat-tip">
+                    <strong>🌞 HEAT HACK (SUPER IMPORTANT):</strong> You're visiting August 1 at 1:30 PM—THE HOTTEST PART OF THE DAY. Here's the trick: Start at the fortress (Alcazaba) first—it's hot but quick. Then move INSIDE the palaces where it's cool. Spend 90 minutes in the shaded courtyards. End in the gardens with trees. Take breaks in the shade. Drink LOTS of water.
+                </div>
+
+                <div class="stroller-note">
+                    <strong>🚼 STROLLER CHALLENGE:</strong> The palace has narrow hallways and stairs. Strollers don't fit everywhere. You might need to leave it at the entrance and use a baby carrier for parts of it. The gardens work better for strollers!
+                </div>
+            </div>
+
+            <!-- GRANADA CATHEDRAL -->
+            <div class="site-guide">
+                <div class="site-title">
+                    <span class="site-emoji">⛪</span>
+                    <span>Granada Cathedral & Royal Chapel: Where the Conquering Kings Are Buried</span>
+                </div>
+
+                <div class="story-box">
+                    <strong>The Story:</strong> Imagine you're the king who just conquered the last Islamic kingdom in Spain. What do you do? You build a HUGE cathedral on the site of the old mosque! This cathedral is where Ferdinand and Isabella (the king and queen who conquered Granada) are buried. Their tombs are really fancy—covered in sculptures of them looking powerful. It's like they wanted the whole world to know: "WE won. WE are in charge now."
+                </div>
+
+                <div class="fun-fact">
+                    <strong>🤓 Cool Fact:</strong> When Granada fell in 1492, legend says the last Islamic king, Boabdil, looked back at the Alhambra and CRY-ED. He was sad because his family had lost their kingdom. His mother even said something like: "Cry like a woman for the land you couldn't defend like a man!" (Pretty harsh, right?)
+                </div>
+
+                <div class="spot-it">
+                    <h4>🎯 SPOT-IT CHALLENGE: In the Cathedral</h4>
+                    <p>Look for these:</p>
+                    <ul style="margin-left: 20px;">
+                        <li>☐ THE ROYAL TOMBS (Ferdinand & Isabella are here, super fancy)</li>
+                        <li>☐ Golden decorations EVERYWHERE</li>
+                        <li>☐ The HUGE ALTAR at the front</li>
+                        <li>☐ Stained glass windows that make colored light</li>
+                        <li>☐ How MASSIVE the building is</li>
+                    </ul>
+                </div>
+
+                <div class="heat-tip">
+                    <strong>🌞 HEAT HACK:</strong> This is a great place to cool down! It's dark and cold inside (thick stone walls). Sit quietly for 15 minutes and your body temperature drops!
+                </div>
+
+                <div class="stroller-note">
+                    <strong>🚼 STROLLER FRIENDLY:</strong> Flat floors, wide spaces. No problem with strollers here!
+                </div>
+            </div>
+
+            <!-- TOURIST TRAIN -->
+            <div class="site-guide">
+                <div class="site-title">
+                    <span class="site-emoji">🚂</span>
+                    <span>The Tourist Train (Ruta Verde): A 90-Minute City Tour!</span>
+                </div>
+
+                <div class="story-box">
+                    <strong>The Story:</strong> Don't want to walk around hot Granada? Take a fun little train that loops around the whole city! It stops at 10 different neighborhoods. You see the Alhambra from different angles, the old city neighborhoods, cave houses, viewpoints, all while sitting down. It's like a lazy exploration of the city!
+                </div>
+
+                <div class="fun-fact">
+                    <strong>🤓 Cool Fact:</strong> The train goes through the ALBAICÍN, the old Islamic medina (old city). The houses are white-washed, the streets are narrow and twisty, and it still looks kind of like it did 500 years ago!
+                </div>
+
+                <div class="spot-it">
+                    <h4>🎯 SPOT-IT CHALLENGE: From the Train</h4>
+                    <p>Look for these as you ride:</p>
+                    <ul style="margin-left: 20px;">
+                        <li>☐ The ALHAMBRA (you'll see it from multiple angles!)</li>
+                        <li>☐ The ALBAICÍN neighborhoods with white cube houses</li>
+                        <li>☐ The SIERRA NEVADA MOUNTAINS in the distance</li>
+                        <li>☐ A CAVE MONASTERY on the hillside (Sacromonte)</li>
+                        <li>☐ The city spreading out below</li>
+                        <li>☐ How different neighborhoods look</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-box">
+                    <h4>❓ QUICK QUIZ</h4>
+                    <p><strong>Is the tourist train...</strong></p>
+                    <div class="quiz-option">A) A real train that carries people</div>
+                    <div class="quiz-option">B) A toy train</div>
+                    <div class="quiz-option">C) A slow sightseeing vehicle (looks like a train but on wheels)</div>
+                    <p style="margin-top: 10px; font-size: 0.9rem; color: #666;"><em>Answer: C! It's on wheels, not tracks. It's slow so you can look around and take pictures. It's PERFECT for tired legs!</em></p>
+                </div>
+
+                <div class="heat-tip">
+                    <strong>🌞 HEAT HACK:</strong> The train is OPEN-AIR, so you'll feel the sun. Go early (8:00-9:00 AM) or late afternoon (4:30 PM). Bring sunscreen and hats! But it's still better than walking in the heat.
+                </div>
+
+                <div class="stroller-note">
+                    <strong>🚼 STROLLER OK:</strong> Strollers fit on the train! Great for a little kid who's tired of walking.
+                </div>
+            </div>
+        </div>
+
+        <div class="page-break">--- Page Break: Heading to Madrid ---</div>
+
+        <!-- ====== MADRID ====== -->
+        <div class="city-section">
+            <div class="city-title">👑 MADRID 👑</div>
+            <div class="city-intro">
+                <strong>When you visit:</strong> August 3-6<br>
+                <strong>Weather:</strong> Hot but less crazy than Andalusia<br>
+                <strong>What you'll see:</strong> A HUGE European palace with fancy rooms.
+            </div>
+
+            <!-- ROYAL PALACE -->
+            <div class="site-guide">
+                <div class="site-title">
+                    <span class="site-emoji">👸</span>
+                    <span>Madrid Royal Palace: The Palace of Palaces!</span>
+                </div>
+
+                <div class="story-box">
+                    <strong>The Story:</strong> After centuries of ruling a mix of Islamic and Christian Spain, Spain's kings wanted to build a palace that was PURELY EUROPEAN. No Islamic influence. No Arabic designs. Just European baroque—SUPER fancy, SUPER gold, SUPER ornate. It's the largest royal palace in Europe! (Even bigger than Versailles in France!) The rooms go on forever. Gold everywhere. Crystal chandeliers. Fancy thrones. It's like someone said, "What if we made a palace where every single surface costs a million dollars?" This is it!
+                </div>
+
+                <div class="fun-fact">
+                    <strong>🤓 Cool Fact:</strong> This palace is the OFFICIAL palace of Spain's king! The royal family actually lives there sometimes. It's not just a museum—it's a real working palace!
+                </div>
+
+                <div class="fun-fact" style="margin-top: 15px;">
+                    <strong>🤓 Cool Fact #2:</strong> Compare this to the Alhambra you saw in Granada. The Alhambra has simple geometric patterns and water channels to cool down. This palace has GOLD and CRYSTAL and huge rooms designed to impress people. They're complete opposites! One is about mathematical beauty, the other is about showing wealth and power.
+                </div>
+
+                <div class="spot-it">
+                    <h4>🎯 SPOT-IT CHALLENGE: In the Royal Palace</h4>
+                    <p>Look for these:</p>
+                    <ul style="margin-left: 20px;">
+                        <li>☐ The THRONE ROOM (where the king sits to do official business)</li>
+                        <li>☐ CRYSTAL CHANDELIERS hanging from ceilings</li>
+                        <li>☐ GOLD DECORATIONS (so much gold!)</li>
+                        <li>☐ Paintings on the ceilings (really high up—bring your neck!)</li>
+                        <li>☐ The DINING ROOM where the king eats fancy meals</li>
+                        <li>☐ The ROYAL BEDROOMS (kind of like bedrooms but MEGA fancy)</li>
+                        <li>☐ How DIFFERENT it is from the Alhambra (no tiles, no water channels, no courtyards)</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-box">
+                    <div class="comparison-item islamic">
+                        <strong>Alhambra (Islamic)</strong><br>
+                        🕌 Peaceful & calm<br>
+                        ⭐ Geometric patterns<br>
+                        💧 Water everywhere<br>
+                        🌳 Designed for cooling
+                    </div>
+                    <div class="comparison-item christian">
+                        <strong>Madrid Palace (European)</strong><br>
+                        👑 Fancy & impressive<br>
+                        ✨ Gold & jewels<br>
+                        🏛️ Big & powerful<br>
+                        💎 Designed to show wealth
+                    </div>
+                </div>
+
+                <div class="quiz-box">
+                    <h4>❓ FINAL QUEST QUIZ</h4>
+                    <p><strong>Looking at all the palaces you've visited, what changed the most?</strong></p>
+                    <div class="quiz-option">A) The purpose (what they used it for)</div>
+                    <div class="quiz-option">B) The style (how it looks)</div>
+                    <div class="quiz-option">C) Both! The style changed AND the purpose changed</div>
+                    <p style="margin-top: 10px; font-size: 0.9rem; color: #666;"><em>Answer: C! Islamic palaces were designed for prayer, community, and staying cool. Christian/European palaces were designed to show power, wealth, and impressiveness. The whole purpose changed, so the whole style changed!</em></p>
+                </div>
+
+                <div class="heat-tip">
+                    <strong>🌞 HEAT HACK:</strong> The palace is AIR-CONDITIONED! It's modern and cold inside. Perfect for escaping Madrid's heat. Enjoy the AC while you're here!
+                </div>
+
+                <div class="stroller-note">
+                    <strong>🚼 STROLLER CHALLENGE:</strong> Lots of stairs and tight passages. Baby carriers work better. But the palace has lots of benches for sitting!
+                </div>
+            </div>
+        </div>
+
+        <!-- FINAL SECTION -->
+        <div class="final-badge">
+            <h2>🎉 YOU DID IT! 🎉</h2>
+            <p>You've traveled through 800 years of Spanish history!</p>
+            <p>You visited Islamic palaces and Christian cathedrals.</p>
+            <p>You discovered how buildings show what people believe and what they value.</p>
+            <p>You survived the Spanish summer heat like a true explorer!</p>
+            <p style="margin-top: 30px; font-size: 1.3rem;"><strong>YOU ARE NOW AN OFFICIAL MASTER OF ANDALUSIAN HISTORY!</strong></p>
+            <div class="quest-badge" style="margin-top: 20px;">🏆 QUEST COMPLETE 🏆</div>
+        </div>
+
+        <div style="padding: 40px; text-align: center; color: #666; font-size: 0.9rem;">
+            <p>Made with love for curious young explorers.</p>
+            <p>Happy travels! 🌍</p>
+        </div>
+    </div>
+</body>
+</html>
